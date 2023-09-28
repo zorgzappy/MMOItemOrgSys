@@ -1,6 +1,6 @@
 public class Overseer {
 
-    private int numOfItemCategories;
+    private int numOfItemCategories; //lol
 
     public static void main(String[] args) {
 
