@@ -55,6 +55,7 @@ public class ItemCategory {
     {
         this.generate();
         this.creationIdCheck(item.getCreationid());
+        //Add rehash parameters and rehash here
         for (int i = 0; i < circulation.length; i++)
         {
             if (circulation[i] == null)

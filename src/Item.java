@@ -15,29 +15,23 @@ public class Item {
     //Unique num sequence assigned to this particular item. Should never be the same as any other item
     private int creationid;
 
-    //In order of the amount created, dictates the order in which it was created in.
-    private int creationNum;
-
-    //This variable will be one of the many checks in place to see if duplication has occured.
-    //If the variable is ever false AFTER an item has been properly initialized, then item was not obtained
-    //From a legitmate source in game. Obviously not something that pertains to this specific project since
-    //there is no game, so for now this variable will always be true.
+    //This variable will be used in a actual game to determine where the item was acquired from. Since this is not a
+    //entier MMO, this variable will just be a boolean value, since there is no methods of acquiring items in this
+    // system.
     private boolean acquisition;
 
     public Item()
     {
         ItemCategoryNum = -1;
         creationid = -1;
-        creationNum = -1;
         acquisition = true;
 
     }
 
-    public Item(int IC, int CI, int CN, boolean a)
+    public Item(int IC, int CI, boolean a)
     {
         ItemCategoryNum = IC;
         creationid = CI;
-        creationNum = CN;
         acquisition = a;
     }
 
@@ -49,9 +43,6 @@ public class Item {
         return ItemCategoryNum;
     }
 
-    public int getCreationNum() {
-        return creationNum;
-    }
 
     public boolean getAcquisition()
     {
