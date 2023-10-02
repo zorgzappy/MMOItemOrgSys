@@ -50,12 +50,22 @@ public class ItemCategory {
         circulation = temp;
     }
 
+    public void downsize()
+    {
+        Item[] temp = new Item[circulation.length/2];
+        for (int i = 0; i < circulation.length; i++)
+        {
+            temp[i] = circulation[i];
+        }
+        circulation = temp;
+    }
+
     //adds a new Item to the list
     public void add(Item item)
     {
         this.generate();
-        this.creationIdCheck(item.getCreationid());
         //Add rehash parameters and rehash here
+
         for (int i = 0; i < circulation.length; i++)
         {
             if (circulation[i] == null)
@@ -67,31 +77,33 @@ public class ItemCategory {
         }
     }
 
-    public void creationIdCheck(int num)
+    public void remove(int cd)
     {
+
         for (int i = 0; i < circulation.length; i++)
         {
             if (circulation[i] != null)
             {
-                if (circulation[i].getCreationid() != num)
+                if (circulation[i].getCreationid() == cd)
                 {
                     circulation[i] = null;
+                    quantity--;
+                    break;
                 }
             }
         }
+        if (quantity < circulation.length/2 )
+        {
+            this.downsize();
+        }
 
     }
-
-
-
-
-    
 
     //Creates a new Item object and adds it to circulation. Increases quantity by 1; It can be used whenever a player obtains an item from killing a boss/event/etc.
     public void generate()
     {
 
-        if (quantity == ((circulation.length/2)-1))
+        if (quantity == (int)((circulation.length/4.0)*3) )
         {
             this.rehash();
         }
