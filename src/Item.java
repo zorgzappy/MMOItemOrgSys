@@ -43,6 +43,8 @@ public class Item {
         return ItemCategoryNum;
     }
 
+    
+
 
     public boolean getAcquisition()
     {
