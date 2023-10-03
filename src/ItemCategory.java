@@ -77,6 +77,11 @@ public class ItemCategory {
         }
     }
 
+
+    /**
+     * Removes an item from circulation that has the same creationid as the parameter cd
+     *
+     */
     public void remove(int cd)
     {
 
@@ -99,6 +104,15 @@ public class ItemCategory {
 
     }
 
+    /**
+     * Removes an item from circulation that has the same creationid as the parameter item
+     *
+     */
+    public void remove(Item item)
+    {
+        this.remove(item.getCreationid());
+    }
+
     //Creates a new Item object and adds it to circulation. Increases quantity by 1; It can be used whenever a player obtains an item from killing a boss/event/etc.
     public void generate()
     {
@@ -109,6 +123,14 @@ public class ItemCategory {
         }
 
     }
+
+    //Searches for an item in circulation that has the same creationid as the parameter cd
+    public Item search(int cd)
+    {
+
+        return null;
+    }
+
 
 
 }

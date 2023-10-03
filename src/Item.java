@@ -12,7 +12,7 @@ public class Item {
     //properly located in the right ItemCategory
     private int ItemCategoryNum;
 
-    //Unique num sequence assigned to this particular item. Should never be the same as any other item
+    //Unique num sequence assigned to this particular item. Should never be the same as any other item IN THE ITEMCATEGORY
     private int creationid;
 
     //This variable will be used in a actual game to determine where the item was acquired from. Since this is not a
