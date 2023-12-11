@@ -34,7 +34,7 @@ public class ItemCategory {
     If the itemcategorynum does not match with anyother itemcategoryid, we will remove that item with null. we will then mark the temporary variable recount to true.
     At the end of the for loop, aka outside the for loop, we will check and see if recount is equal to true. If it does, that means we need to change each item's
     creationnum.
-     */
+     */ 
 
 
 
@@ -50,6 +50,8 @@ public class ItemCategory {
         circulation = temp;
     }
 
+
+    //This method was made, but a good chance it won't be used at all. It will make the list shorter if there are too many null entries
     public void downsize()
     {
         Item[] temp = new Item[circulation.length/2];

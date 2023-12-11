@@ -20,19 +20,51 @@ public class Item {
     // system.
     private boolean acquisition;
 
+
+    private int rarity; // 1 = common, 2 = uncommon, 3 = rare, 4 = epic, 5 = legendary
+    private int itemType; // 1 = weapon, 2 = Helmet, 3 = Robe, 4 = Boots, 5 = Consumable
+
+    private int attack;
+
+    private int defense;
+    private int health;
+    private int mana;
+
+
+
     public Item()
     {
         ItemCategoryNum = -1;
         creationid = -1;
         acquisition = true;
+        rarity = 1;
+        attack = 0;
+        defense = 0;
+        health = 0;
+        mana = 0;
+        itemType = 0;
 
     }
 
-    public Item(int IC, int CI, boolean a)
+    public Item(int IC, int CI, boolean a, int r, int at, int de, int h, int m, int IT)
     {
         ItemCategoryNum = IC;
         creationid = CI;
         acquisition = a;
+        rarity = r;
+        attack = at;
+        defense = de;
+        health = h;
+        mana = m;
+        itemType = IT;
+    }
+
+    public void setItemType(int itemType) {
+        this.itemType = itemType;
+    }
+
+    public int getItemType() {
+        return itemType;
     }
 
     public int getCreationid() {
@@ -43,12 +75,87 @@ public class Item {
         return ItemCategoryNum;
     }
 
-    
-
-
     public boolean getAcquisition()
     {
         return acquisition;
+    }
+
+    public int getRarity()
+    {
+        return rarity;
+    }
+
+    public int getAttack()
+    {
+        return attack;
+    }
+
+    public int getDefense()
+    {
+        return defense;
+    }
+
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public int getMana()
+    {
+        return mana;
+    }
+
+    public void setCreationid(int creationid) {
+        this.creationid = creationid;
+    }
+
+    public void setItemCategoryNum(int ItemCategoryNum) {
+        this.ItemCategoryNum = ItemCategoryNum;
+    }
+
+    public void setAcquisition(boolean acquisition)
+    {
+        this.acquisition = acquisition;
+    }
+
+    public void setRarity(int rarity)
+    {
+        this.rarity = rarity;
+    }
+
+    public void setAttack(int attack)
+    {
+        this.attack = attack;
+    }
+
+    public void setDefense(int defense)
+    {
+        this.defense = defense;
+    }
+
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
+    public void setMana(int mana)
+    {
+        this.mana = mana;
+    }
+
+public String toString()
+    {
+        String s = "";
+        s += "Item Category Number: " + ItemCategoryNum + "\n";
+        s += "Creation ID: " + creationid + "\n";
+        s += "Acquisition: " + acquisition + "\n";
+        s += "Rarity: " + rarity + "\n";
+        s += "Attack: " + attack + "\n";
+        s += "Defense: " + defense + "\n";
+        s += "Health: " + health + "\n";
+        s += "Mana: " + mana + "\n";
+        return s;
+
     }
 
 }
