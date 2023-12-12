@@ -26,24 +26,47 @@ public class ItemCategoryList {
         return quantity;
     }
 
-//    public void checkItemCategoryNum(int numb)
-//    {
-//
-//        boolean recount = false;
-//        for (int i = 0; i < circulation.length; i++)
-//        {
-//            if (circulation[i] != null)
-//            {
-//                if (circulation[i].getItemCategoryNum() != itemCategoryID)
-//                {
-//
-//                    circulation[i] = null;
-//                    recount = true;
-//                }
-//            }
-//        }
-//
-//    }
+
+
+
+
+    public void rehash()
+    {
+        ItemCategory[] temp = new ItemCategory[allItemsCategories.length*2];
+        for (int i = 0; i < allItemsCategories.length; i++)
+        {
+            temp[i] = allItemsCategories[i];
+        }
+        allItemsCategories = temp;
+    }
+
+    public void add(ItemCategory item)
+    {
+        this.generate();
+        //Add rehash parameters and rehash here
+
+        for (int i = 0; i < allItemsCategories.length; i++)
+        {
+            if (allItemsCategories[i] == null)
+            {
+                allItemsCategories[i] = item;
+                quantity++;
+                break;
+            }
+        }
+    }
+
+    public void generate()
+    {
+
+        if (quantity == (int)((allItemsCategories.length/4.0)*3) )
+        {
+            this.rehash();
+        }
+
+    }
+
+
 
 
 }
