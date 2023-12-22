@@ -154,6 +154,7 @@ public String toString()
         s += "Defense: " + defense + "\n";
         s += "Health: " + health + "\n";
         s += "Mana: " + mana + "\n";
+        s += "Item Type: " + itemType + "\n";
         return s;
 
     }

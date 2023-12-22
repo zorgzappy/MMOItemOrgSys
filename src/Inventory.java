@@ -10,6 +10,10 @@ public class Inventory {
     private int quantityEquipped;
     private Item[] items;
     private int quantityItems;
+    private int totalAttack;
+    private int totalDefense;
+    private int totalHealth;
+    private int totalMana;
 
 public Inventory()
 {
@@ -18,8 +22,43 @@ public Inventory()
     quantityEquipped = 0;
     equipped = new Item[MAX_EQUIPPED];
     itemCategoryList = new ItemCategoryList();
+    totalAttack = 0;
+    totalDefense = 0;
+    totalHealth = 0;
+    totalMana = 0;
 
 
+}
+
+public void setItemCategoryList(ItemCategoryList itemCategoryList) {
+    this.itemCategoryList = itemCategoryList;
+}
+public ItemCategoryList getItemCategoryList() {
+    return itemCategoryList;
+}
+
+    public void setEquipped(Item[] equipped) {
+        this.equipped = equipped;
+    }
+
+    public Item[] getEquipped() {
+        return equipped;
+    }
+
+    public void setQuantityEquipped(int quantity) {
+        this.quantityEquipped = quantity;
+    }
+
+    public int getQuantityEquipped() {
+        return quantityEquipped;
+    }
+
+    public void setItems(Item[] items) {
+        this.items = items;
+    }
+
+    public Item[] getItems() {
+        return items;
 }
 
     public void setQuantityItems(int quantity) {
@@ -42,7 +81,7 @@ public Inventory()
             int rarity = (int)(Math.random() * 5)+1;
             int itemType = (int)(Math.random() * 5)+1;
             //Need to add to correct ItemCategoryList
-
+            Item item = new Item();
             if (rarity == 1) {
                 //common
                 if (itemType != 5) {
@@ -52,13 +91,18 @@ public Inventory()
                     int defense = (int) (Math.random() * 5) + 1;
                     int health = (int) (Math.random() * 5) + 1;
                     int mana = (int) (Math.random() * 5) + 1;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                     item = new Item(-1, -1, true,rarity, attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
+
+
                 } else {
                     int attack = 5;
                     int defense = 5;
                     int health = 5;
                     int mana = 5;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                     item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType );
+                    itemCategoryList.addItem(item);
+
 
                 }
             }
@@ -70,14 +114,18 @@ public Inventory()
                     int defense = (int) (Math.random() * 10) + 2;
                     int health = (int) (Math.random() * 10) + 2;
                     int mana = (int) (Math.random() * 10) + 2;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                     item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType );
+                    itemCategoryList.addItem(item);
+
                 }
                 else {
                     int attack = 10;
                     int defense = 10;
                     int health = 10;
                     int mana = 10;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                     item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
+
 
                 }
             }
@@ -89,14 +137,18 @@ public Inventory()
                     int defense = (int) (Math.random() * 15) + 4;
                     int health = (int) (Math.random() * 15) + 4;
                     int mana = (int) (Math.random() * 15) + 4;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                     item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
+
                 }
                 else {
                     int attack = 15;
                     int defense = 15;
                     int health = 15;
                     int mana = 15;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                      item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
+
 
                 }
             }
@@ -108,14 +160,17 @@ public Inventory()
                     int defense = (int) (Math.random() * 20) + 6;
                     int health = (int) (Math.random() * 20) + 6;
                     int mana = (int) (Math.random() * 20) + 6;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                      item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
+
                 }
                 else {
                     int attack = 20;
                     int defense = 20;
                     int health = 20;
                     int mana = 20;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                      item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
 
                 }
 
@@ -128,19 +183,29 @@ public Inventory()
                     int defense = (int) (Math.random() * 25) + 11;
                     int health = (int) (Math.random() * 25) + 11;
                     int mana = (int) (Math.random() * 25) + 11;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                      item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
+                    //make sure to add the item to the item array
                 }
                 else {
                     int attack = 25;
                     int defense = 25;
                     int health = 25;
                     int mana = 25;
-                    Item item = new Item(attack, defense, health, mana, itemType, rarity);
+                      item = new Item(-1, -1, true,rarity,attack, defense, health, mana, itemType);
+                    itemCategoryList.addItem(item);
 
                 }
 
             }
-
+            for (int i = 0; i < items.length; i++)
+            {
+                if (items[i] == null)
+                {
+                    items[i] = item;
+                    break;
+                }
+            }
 
             //add item to inventory
             System.out.println("You successfully picked up an item!");
@@ -155,16 +220,36 @@ public Inventory()
      One method this needs is a drop method, where the person will randomly drop an item with the lowest
      rarity from their inventory that is not equipped.
      **/
-    public void drop()
+    public void dropLow()
     {
         if (quantityItems != 0)
         {
             //drop item from inventory
+            int lowestrarity = 100;
+            int index = -1;
+            for (int i = 0; i < items.length; i++)
+            {
+                if (items[i] != null)
+                {
+                    if (items[i].getRarity() < lowestrarity)
+                    {
+                        lowestrarity = items[i].getRarity();
+                        index = i;
+                        if (items[i].getRarity() == 1)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            itemCategoryList.removeItem(items[index]);
+            items[index] = null;
             System.out.println("You successfully dropped an item!");
             quantityItems--;
+            return;
         }
         else {
-            System.out.println("You can't drop any more items!");
+            System.out.println("Your inventory is empty!");
         }
     }
 
@@ -174,17 +259,61 @@ public Inventory()
         if (quantityItems != 0 && i.getItemType() == 5)
         {
             //consume item from inventory
+            if (i.getRarity() == 1)
+            {
+                totalAttack += i.getAttack();
+                totalDefense += i.getDefense();
+                totalHealth += i.getHealth();
+                totalMana += i.getMana();
+            }
+            else if (i.getRarity() == 2)
+            {
+                totalAttack += i.getAttack();
+                totalDefense += i.getDefense();
+                totalHealth += i.getHealth();
+                totalMana += i.getMana();
+            }
+            else if (i.getRarity() == 3)
+            {
+                totalAttack += i.getAttack();
+                totalDefense += i.getDefense();
+                totalHealth += i.getHealth();
+                totalMana += i.getMana();
+            }
+            else if (i.getRarity() == 4)
+            {
+                totalAttack += i.getAttack();
+                totalDefense += i.getDefense();
+                totalHealth += i.getHealth();
+                totalMana += i.getMana();
+            }
+            else if (i.getRarity() == 5)
+            {
+                totalAttack += i.getAttack();
+                totalDefense += i.getDefense();
+                totalHealth += i.getHealth();
+                totalMana += i.getMana();
+            }
+            for (int x = 0; x < items.length; x++)
+            {
+                if (items[x] == i)
+                {
+                    items[x] = null;
+                    break;
+                }
+            }
+            itemCategoryList.removeItem(i);
             System.out.println("You successfully consumed an item!");
             quantityItems--;
         }
         else {
-            System.out.println("You can't consume any more items!");
+            System.out.println("You can't consume this item!");
         }
     }
 
-    public void equip()
+    public void equip(Item item)
     {
-        if (quantityItems != 0)
+        if (quantityItems != 0 && quantityEquipped != MAX_EQUIPPED)
         {
             //equip item from inventory
             System.out.println("You successfully equipped an item!");
@@ -196,9 +325,9 @@ public Inventory()
         }
     }
 
-    public void unequip()
+    public void unequip(Item item)
     {
-        if (quantityItems != 0)
+        if (quantityItems != 0 && quantityEquipped != 0)
         {
             //unequip item from inventory
             System.out.println("You successfully unequipped an item!");
@@ -223,6 +352,27 @@ public Inventory()
         }
     }
 
+    public String toString()
+    {
+        String s = "";
+        s += "Equipped Items: \n";
+        for (int i = 0; i < equipped.length; i++)
+        {
+            if (equipped[i] != null)
+            {
+                s += equipped[i].toString() + "\n";
+            }
+        }
+        s += "\n\nInventory Items: \n";
+        for (int i = 0; i < items.length; i++)
+        {
+            if (items[i] != null)
+            {
+                s += items[i].toString() + "\n";
+            }
+        }
 
+        return s;
+    }
 
 }

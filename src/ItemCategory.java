@@ -38,6 +38,25 @@ public class ItemCategory {
 
 
 
+    public int getItemCategoryID() {
+        return this.itemCategoryID;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setItemCategoryID(int itemCategoryID)
+    {
+        this.itemCategoryID = itemCategoryID;
+    }
+
+    public void setName(String name)
+    {
+        this.Name = name;
+    }
+
+
 
     //Makes the list longer if enough items are created
     public void rehash()
@@ -52,15 +71,15 @@ public class ItemCategory {
 
 
     //This method was made, but a good chance it won't be used at all. It will make the list shorter if there are too many null entries
-    public void downsize()
-    {
-        Item[] temp = new Item[circulation.length/2];
-        for (int i = 0; i < circulation.length; i++)
-        {
-            temp[i] = circulation[i];
-        }
-        circulation = temp;
-    }
+//    public void downsize()
+//    {
+//        Item[] temp = new Item[circulation.length/2];
+//        for (int i = 0; i < circulation.length; i++)
+//        {
+//            temp[i] = circulation[i];
+//        }
+//        circulation = temp;
+//    }
 
     //adds a new Item to the list
     public void add(Item item)
@@ -86,7 +105,7 @@ public class ItemCategory {
      */
     public void remove(int cd)
     {
-
+            int x = 0;
         for (int i = 0; i < circulation.length; i++)
         {
             if (circulation[i] != null)
@@ -95,14 +114,20 @@ public class ItemCategory {
                 {
                     circulation[i] = null;
                     quantity--;
+                    x = 1;
                     break;
                 }
             }
         }
-        if (quantity < circulation.length/2 )
+//        if (quantity < circulation.length/2 )
+//        {
+//            this.downsize();
+//        }
+        if (x == 0)
         {
-            this.downsize();
+            System.out.println("Item not removed! ERROR!");
         }
+
 
     }
 
@@ -124,6 +149,13 @@ public class ItemCategory {
             this.rehash();
         }
 
+    }
+
+    public String toString()
+    {
+        String str = "";
+       str = str + "ItemCategoryID: " + itemCategoryID +  " Name: " + Name + " Quantity: " + quantity + "\n";
+        return str;
     }
 
     //Searches for an item in circulation that has the same creationid as the parameter cd

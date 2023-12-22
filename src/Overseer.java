@@ -1,39 +1,23 @@
 public class Overseer {
 
-    private int numOfItemCategories; // Holds the number of Item Categories in the game
-
-
-
-    public Overseer()
-    {
-        numOfItemCategories = 0;
-    }
-
-
-    //    public void checkItemCategoryNum(int numb)
-//    {
-//
-//        boolean recount = false;
-//        for (int i = 0; i < circulation.length; i++)
-//        {
-//            if (circulation[i] != null)
-//            {
-//                if (circulation[i].getItemCategoryNum() != itemCategoryID)
-//                {
-//
-//                    circulation[i] = null;
-//                    recount = true;
-//                }
-//            }
-//        }
-//
-//    }
-
-
     public static void main(String[] args) {
 
 
-    System.out.println("Hello World");
+//        for (int i = 0; i < 10; i++) {
+            Inventory tester = new Inventory();
+          for (int i = 0; i < 20; i++) {
+                  tester.pickUp();
+          }
+            System.out.println(tester.getItemCategoryList().getQuantityItemCategories());
+            System.out.println(tester.getItemCategoryList().getQuantityItems());
+            System.out.println(tester);
+            tester.dropLow();
+            tester.dropLow();
+            System.out.println(tester.getItemCategoryList().getQuantityItemCategories());
+            System.out.println(tester.getItemCategoryList().getQuantityItems());
+            System.out.println(tester);
+
+//        }
 
     }
 
