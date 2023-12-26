@@ -348,7 +348,7 @@ public ItemCategoryList getItemCategoryList() {
             System.out.println("You successfully swapped an item!");
         }
         else {
-            System.out.println("You can't swap any more items!");
+            System.out.println("There is nothing to swap!");
         }
     }
 

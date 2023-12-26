@@ -61,7 +61,7 @@ public class ItemCategoryList {
         //itemcategory's circulation.
 
 
-        item.setItemCategoryNum(item.getAttack()*2 + item.getDefense()*43 + item.getHealth()*5 + item.getMana()*7 + item.getItemType()*11 + item.getRarity()*13);
+        item.setItemCategoryNum(item.getAttack()*22 + item.getDefense()*43 + item.getHealth()*542 + item.getMana()*731 + item.getItemType()*113 + item.getRarity()*132);
         for (int i = 0; i < allItemsCategories.length; i++)
         {
             if (allItemsCategories[i] != null)
