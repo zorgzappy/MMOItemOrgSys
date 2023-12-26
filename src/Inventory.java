@@ -72,7 +72,7 @@ public ItemCategoryList getItemCategoryList() {
 
 
     //One method this needs is a pickup method, where the person will randomly pick up an item from "the ground".
-    public void pickUp()
+    public Item pickUp()
     {
         if (quantityItems != MAX_ITEMS)
         {
@@ -210,9 +210,11 @@ public ItemCategoryList getItemCategoryList() {
             //add item to inventory
             System.out.println("You successfully picked up an item!");
             quantityItems++;
+            return item;
         }
         else {
             System.out.println("You can't pick up any more items!");
+            return null;
         }
     }
 
