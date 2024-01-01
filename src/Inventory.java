@@ -222,7 +222,7 @@ public ItemCategoryList getItemCategoryList() {
      One method this needs is a drop method, where the person will randomly drop an item with the lowest
      rarity from their inventory that is not equipped.
      **/
-    public void dropLow()
+    public Item dropLow()
     {
         if (quantityItems != 0)
         {
@@ -244,14 +244,16 @@ public ItemCategoryList getItemCategoryList() {
                     }
                 }
             }
+            Item rm = items[index];
             itemCategoryList.removeItem(items[index]);
             items[index] = null;
             System.out.println("You successfully dropped an item!");
             quantityItems--;
-            return;
+            return rm;
         }
         else {
-            System.out.println("Your inventory is empty!");
+            System.out.println("Your inventory is empty! Cannot drop anything!");
+            return null;
         }
     }
 

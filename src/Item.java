@@ -143,6 +143,53 @@ public class Item {
         this.mana = mana;
     }
 
+    public String getRarityString()
+    {
+        String s = "";
+        switch (rarity)
+        {
+            case 1:
+                s = "Common";
+                break;
+            case 2:
+                s = "Uncommon";
+                break;
+            case 3:
+                s = "Rare";
+                break;
+            case 4:
+                s = "Epic";
+                break;
+            case 5:
+                s = "Legendary";
+                break;
+        }
+        return s;
+    }
+    public String getItemTypeString()
+    {
+        String s = "";
+        switch (itemType)
+        {
+            case 1:
+                s = "Weapon";
+                break;
+            case 2:
+                s = "Helmet";
+                break;
+            case 3:
+                s = "Robe";
+                break;
+            case 4:
+                s = "Boots";
+                break;
+            case 5:
+                s = "Consumable";
+                break;
+        }
+        return s;
+    }
+
 public String toString()
     {
         String s = "";
