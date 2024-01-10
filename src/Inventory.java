@@ -15,6 +15,38 @@ public class Inventory {
     private int totalHealth;
     private int totalMana;
 
+    //generate setters and getters for totalAttack, totalDefense, totalHealth, and totalMana
+    public void setTotalAttack(int totalAttack) {
+        this.totalAttack = totalAttack;
+    }
+    public int getTotalAttack() {
+        return totalAttack;
+    }
+    public void setTotalDefense(int totalDefense) {
+        this.totalDefense = totalDefense;
+    }
+    public int getTotalDefense() {
+        return totalDefense;
+    }
+
+    public void setTotalHealth(int totalHealth) {
+        this.totalHealth = totalHealth;
+    }
+
+    public int getTotalHealth() {
+        return totalHealth;
+    }
+
+    public void setTotalMana(int totalMana) {
+        this.totalMana = totalMana;
+    }
+
+    public int getTotalMana() {
+        return totalMana;
+    }
+
+
+
 public Inventory()
 {
     quantityItems = 0;
