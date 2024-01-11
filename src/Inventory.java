@@ -2,7 +2,7 @@
 
 public class Inventory {
     private final int MAX_ITEMS = 20;
-    private final int MAX_EQUIPPED = 5;
+    private final int MAX_EQUIPPED = 4;
     private ItemCategoryList itemCategoryList;
 
 
@@ -347,10 +347,17 @@ public ItemCategoryList getItemCategoryList() {
         }
     }
 
-    public void equip(Item item)
+    public void equip(Item item, int index)
     {
         if (quantityItems != 0 && quantityEquipped != MAX_EQUIPPED)
         {
+            this.setTotalAttack(this.getTotalAttack() + item.getAttack());
+            this.setTotalDefense(this.getTotalDefense() + item.getDefense());
+            this.setTotalHealth(this.getTotalHealth() + item.getHealth());
+            this.setTotalMana(this.getTotalMana() + item.getMana());
+            equipped[item.getItemType()-1] = item;
+            items[index] = null;
+
             //equip item from inventory
             System.out.println("You successfully equipped an item!");
             quantityItems--;

@@ -8,6 +8,8 @@ public class GUI extends JFrame{
     private JButton dropLow;
     private JButton consumeConsumable;
     private JButton showBackend;
+    private JButton equipItem;
+
 
     private JLabel[] counters;
 
@@ -19,7 +21,7 @@ public class GUI extends JFrame{
     private JLabel Equipped;
     private JLabel stats;
 
-
+// 1 = weapon, 2 = Helmet, 3 = Robe, 4 = Boots, 5 = Consumable
 
     public GUI() {
         // Set up the frame
@@ -52,6 +54,10 @@ public class GUI extends JFrame{
         consumeConsumable.addActionListener(new ButtonClickListener4());
         add(consumeConsumable);
 
+        equipItem = new JButton("Equip an item");
+        equipItem.addActionListener(new ButtonClickListener5());
+        add(equipItem);
+
         //Display text saying "Inventory" above the Counters
          inventory = new JLabel("Inventory\n\n\n");
         add(inventory);
@@ -68,8 +74,8 @@ public class GUI extends JFrame{
          Equipped = new JLabel("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEquipped\n\n\n");
         add(Equipped);
 
-        equipped = new JLabel[6];
-        for (int i = 0; i < 6; i++) {
+        equipped = new JLabel[4];
+        for (int i = 0; i < 4; i++) {
             equipped[i] = new JLabel("0\n");
             equipped[i].setBorder(BorderFactory.createLineBorder(Color.black));
             add(equipped[i]);
@@ -147,7 +153,7 @@ public class GUI extends JFrame{
     private class ButtonClickListener4 implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String userInput = JOptionPane.showInputDialog(this, "Enter the index of the potion you want to consume:");
+            String userInput = JOptionPane.showInputDialog(null, "Enter the index of the potion you want to consume:", "Consume a potion", JOptionPane.QUESTION_MESSAGE);
             int index = Integer.parseInt(userInput);
             if (index >= 0 && index < 20 && inven.getItems()[index] != null) {
 
@@ -161,16 +167,101 @@ public class GUI extends JFrame{
                else {
                    JOptionPane.showMessageDialog(null, "That item is not a potion!");
                }
-
             }
             else
             {
                 JOptionPane.showMessageDialog(null, "Invalid index! Please try again.");
             }
+        }
+    }
 
-
-            // Check if the user clicked "Cancel" or entered a non-integer value
-
+    private class ButtonClickListener5 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String userInput = JOptionPane.showInputDialog(null, "Enter the index of the Item you want to Equip:", "Equip an Item", JOptionPane.QUESTION_MESSAGE);
+            int index = Integer.parseInt(userInput);
+            if (index >= 0 && index < 20 && inven.getItems()[index] != null)
+            {
+                if (inven.getItems()[index].getItemType() == 1)
+                {
+                    if (inven.getEquipped()[0] == null)
+                    {
+                        equipped[0].setText(inven.getItems()[index].toString());
+                        inven.equip(inven.getItems()[index], index);
+                        counters[index].setText("0\n");
+                        stats.setText("Total Attack: " + inven.getTotalAttack() + " Total Defense: " + inven.getTotalDefense()
+                                + " Total Health: " + inven.getTotalHealth() + " Total Mana: " + inven.getTotalMana());
+                        counter--;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You already have a weapon equipped!");
+                    }
+                }
+                else if (inven.getItems()[index].getItemType() == 2)
+                {
+                    //write the same code i used before  here with modifications to work with the helmet
+                    if (inven.getEquipped()[1] == null)
+                    {
+                        equipped[1].setText(inven.getItems()[index].toString());
+                        inven.equip(inven.getItems()[index], index);
+                        counters[index].setText("0\n");
+                        stats.setText("Total Attack: " + inven.getTotalAttack() + " Total Defense: " + inven.getTotalDefense()
+                                + " Total Health: " + inven.getTotalHealth() + " Total Mana: " + inven.getTotalMana());
+                        counter--;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You already have a helmet equipped!");
+                    }
+                }
+                else if (inven.getItems()[index].getItemType() == 3)
+                {
+                    //write the same code i used before  here with modifications to work with the robe
+                    if (inven.getEquipped()[2] == null)
+                    {
+                        equipped[2].setText(inven.getItems()[index].toString());
+                        inven.equip(inven.getItems()[index], index);
+                        counters[index].setText("0\n");
+                        stats.setText("Total Attack: " + inven.getTotalAttack() + " Total Defense: " + inven.getTotalDefense()
+                                + " Total Health: " + inven.getTotalHealth() + " Total Mana: " + inven.getTotalMana());
+                        counter--;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You already have a robe equipped!");
+                    }
+                }
+                else if (inven.getItems()[index].getItemType() == 4)
+                {
+                    //write the same code i used before  here with modifications to work with the boots
+                    if (inven.getEquipped()[3] == null)
+                    {
+                        equipped[3].setText(inven.getItems()[index].toString());
+                        inven.equip(inven.getItems()[index], index);
+                        counters[index].setText("0\n");
+                        stats.setText("Total Attack: " + inven.getTotalAttack() + " Total Defense: " + inven.getTotalDefense()
+                                + " Total Health: " + inven.getTotalHealth() + " Total Mana: " + inven.getTotalMana());
+                        counter--;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You already have boots equipped!");
+                    }
+                }
+                else if (inven.getItems()[index].getItemType() == 5)
+                {
+                    JOptionPane.showMessageDialog(null, "You cannot equip a potion!");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid item type!");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Invalid index! Please try again.");
+            }
 
         }
     }
