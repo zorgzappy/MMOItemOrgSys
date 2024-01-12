@@ -368,7 +368,7 @@ public ItemCategoryList getItemCategoryList() {
         }
     }
 
-    public void unequip(Item item)
+    public void unequip(Item item, int index)
     {
         if (quantityItems != 0 && quantityEquipped != 0)
         {
@@ -376,6 +376,12 @@ public ItemCategoryList getItemCategoryList() {
             System.out.println("You successfully unequipped an item!");
             quantityItems++;
             quantityEquipped--;
+            this.setTotalAttack(this.getTotalAttack() - item.getAttack());
+            this.setTotalDefense(this.getTotalDefense() - item.getDefense());
+            this.setTotalHealth(this.getTotalHealth() - item.getHealth());
+            this.setTotalMana(this.getTotalMana() - item.getMana());
+            items[index] = item;
+            equipped[item.getItemType()-1] = null;
         }
         else {
             System.out.println("You can't unequip any more items!");

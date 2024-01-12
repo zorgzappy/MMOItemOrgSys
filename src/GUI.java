@@ -9,6 +9,7 @@ public class GUI extends JFrame{
     private JButton consumeConsumable;
     private JButton showBackend;
     private JButton equipItem;
+    private  JButton unequipItem;
 
 
     private JLabel[] counters;
@@ -45,18 +46,25 @@ public class GUI extends JFrame{
         dropLow.addActionListener(new ButtonClickListener2());
         add(dropLow);
 
-        // Hides the counters and instead displays the equipped items.
+        // Shows the backend
         showBackend = new JButton("Show Backend");
         showBackend.addActionListener(new ButtonClickListener3());
         add(showBackend);
 
+        // Consumes a potion
         consumeConsumable = new JButton("Consume a potion");
         consumeConsumable.addActionListener(new ButtonClickListener4());
         add(consumeConsumable);
 
+        //Equips an item
         equipItem = new JButton("Equip an item");
         equipItem.addActionListener(new ButtonClickListener5());
         add(equipItem);
+
+        //Unequips an item
+        unequipItem = new JButton("Unequip an item");
+        unequipItem.addActionListener(new ButtonClickListener6());
+        add(unequipItem);
 
         //Display text saying "Inventory" above the Counters
          inventory = new JLabel("Inventory\n\n\n");
@@ -263,6 +271,52 @@ public class GUI extends JFrame{
                 JOptionPane.showMessageDialog(null, "Invalid index! Please try again.");
             }
 
+        }
+    }
+    private class ButtonClickListener6 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(counter);
+            String userInput = JOptionPane.showInputDialog(null, "Enter the index of the potion you want to consume:", "Consume a potion", JOptionPane.QUESTION_MESSAGE);
+            int index = Integer.parseInt(userInput);
+            if (index >= 0 && index < 4 ) {
+
+                if (inven.getEquipped()[index] == null)
+                {
+                    JOptionPane.showMessageDialog(null, "You do not have an item equipped in that slot!");
+                }
+                else
+                {
+                   if (inven.getQuantityItems() == 20)
+                   {
+                          JOptionPane.showMessageDialog(null, "Your inventory is full! You must drop an item before unequipping!");
+                     }
+                     else
+                     {
+                         int ind = -1;
+                        for (int i = 0; i < 20; i++)
+                        {
+                            if (inven.getItems()[i] == null)
+                            {
+                                ind = i;
+                                break;
+                            }
+                        }
+                        counters[ind].setText(inven.getEquipped()[index].toString());
+                        inven.unequip(inven.getEquipped()[index], ind);
+                        equipped[index].setText("0\n");
+                        stats.setText("Total Attack: " + inven.getTotalAttack() + " Total Defense: " + inven.getTotalDefense()
+                                + " Total Health: " + inven.getTotalHealth() + " Total Mana: " + inven.getTotalMana());
+                          counter++;
+
+                   }
+                }
+
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Invalid index! Please try again.");
+            }
         }
     }
 
