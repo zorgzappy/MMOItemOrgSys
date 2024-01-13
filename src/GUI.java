@@ -13,7 +13,6 @@ public class GUI extends JFrame{
 
 
     private JLabel[] counters;
-
     private  JLabel[] equipped;
     private int counter = 0;
     private Inventory inven;
@@ -276,7 +275,6 @@ public class GUI extends JFrame{
     private class ButtonClickListener6 implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(counter);
             String userInput = JOptionPane.showInputDialog(null, "Enter the index of the potion you want to consume:", "Consume a potion", JOptionPane.QUESTION_MESSAGE);
             int index = Integer.parseInt(userInput);
             if (index >= 0 && index < 4 ) {

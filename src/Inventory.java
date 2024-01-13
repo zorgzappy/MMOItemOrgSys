@@ -391,6 +391,10 @@ public ItemCategoryList getItemCategoryList() {
     //This is only for swapping items in the inventory, not equipped items.
     public void swap(int index1, int index2)
     {
+
+
+        //This would normally be implemented, but it serves very little purpose in this project.
+
         if (items[index1] != null || items[index2] != null)
         {
             //swap item from inventory
