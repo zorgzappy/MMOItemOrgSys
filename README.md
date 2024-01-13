@@ -1,7 +1,7 @@
 # MMOItemOrgSys
 
 # Statement of Purpose:
-	This project aims to create an item organization system that can be implemented within an MMO video game (or an RPG one). One of the main goals of this project is to optimize the time complexity of any method so that it is as efficient as possible. 
+	This project aims to create an item organization system that can be implemented within an MMO video game (or an RPG one). One of the main goals of this project is to optimize the time complexity of any method so that it is as efficient as possible. This project also aims to create a mock front end for a user of their inventory, along with a backend that is properly linked to any action done by the front-end. 
 
 # Classes:
 	There will be several classes in this program in order to create the full functional program.
