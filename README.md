@@ -15,7 +15,7 @@
 
 Check out this video for more information:
 
-[![Watch the video]([https://github.com/your-username/your-repo/blob/main/video-thumbnail.png](https://img.youtube.com/vi/tyoELYEfH-s/0.jpg))](https://www.youtube.com/watch?v=tyoELYEfH-s)
+[![Watch the video]((https://img.youtube.com/vi/tyoELYEfH-s/0.jpg))](https://www.youtube.com/watch?v=tyoELYEfH-s)
 
 
 
