@@ -15,7 +15,10 @@
 
 Check out this video for more information:
 
-[![Watch the video](https://img.youtube.com/vi/tyoELYEfH-s/0.jpg)](https://www.youtube.com/watch?v=tyoELYEfH-s)
+[![Watch the video]()]()
+<a href="https://www.youtube.com/watch?v=tyoELYEfH-s" target="_blank">
+  <img src="https://img.youtube.com/vi/tyoELYEfH-s/0.jpg" alt="Watch the video" style="width:100%; max-width:560px;">
+</a>
 
 
 
