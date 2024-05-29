@@ -15,11 +15,7 @@
 
 Check out this video for more information:
 
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/dQw4w9WgXcQ](https://www.youtube.com/embed/tyoELYEfH-s)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-
+[![Watch the video]([https://github.com/your-username/your-repo/blob/main/video-thumbnail.png](https://img.youtube.com/vi/tyoELYEfH-s/0.jpg))](https://www.youtube.com/watch?v=tyoELYEfH-s)
 
 
 
