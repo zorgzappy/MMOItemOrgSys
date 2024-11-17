@@ -16,7 +16,7 @@
 Check out this video for more information:
 
 <a href="https://www.youtube.com/watch?v=tyoELYEfH-s" target="_blank">
-  <img src="https://img.youtube.com/vi/vKJKz0Uk_0Y/sddefault.jpg" alt="Watch the video" style="width:100%; max-width:560px;" target="_blank">
+  <img src="https://img.youtube.com/vi/tyoELYEfH-s/sddefault.jpg" alt="Watch the video" style="width:100%; max-width:560px;" target="_blank">
 </a>
 
 
